@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from "react";
 
 function App() {
+  const [open, setOpen] = useState(false);
+  const [answer, setAnswer] = useState(false);
+  let handleAnswer = function (e: React.MouseEvent<HTMLButtonElement>) {
+    setOpen(!open);
+    setAnswer((e.target as any).textContent === 'OK')
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <button className="open-modal-btn" onClick={() => setOpen(!open)}>Open</button>
+        {open && (
+            <div className="overlay">
+              <div className="modal">
+                <p>some text</p>
+                <div className="buttons">
+                  <button onClick={handleAnswer}>Decline</button>
+                  <button onClick={handleAnswer}>OK</button>
+                </div>
+              </div>
+            </div>
+        )}
+      </div>
   );
 }
 
