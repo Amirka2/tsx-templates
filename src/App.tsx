@@ -7,7 +7,7 @@ import Result from "./Result";
 function App() {
   return (
     <div className="App">
-      <Game></Game>
+      <Game question={'xxx'} options={['', '']} correct={0}></Game>
       <Result></Result>
     </div>
   );
