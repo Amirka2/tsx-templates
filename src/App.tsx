@@ -20,8 +20,8 @@ function App() {
     <div className="App">
         <Game question={gameSteps[step].question} options={gameSteps[step].options} correct={gameSteps[step].correct}></Game>
       {/*<Result result={1/10}></Result>*/}
-        <button onClick={() => setStep(step - 1)}>Prev</button>
-        <button onClick={() => setStep(step + 1)}>Next</button>
+        <button onClick={() => setStep(step - 1)} disabled={step === 0}>Prev</button>
+        <button onClick={() => setStep(step + 1)} disabled={step === gameSteps.length - 1}>Next</button>
     </div>
   );
 }
