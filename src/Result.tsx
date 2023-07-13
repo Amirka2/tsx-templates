@@ -1,8 +1,13 @@
 import React from 'react';
 
-function Result() {
+type resultProps = {
+    result: number
+}
+function Result(props: resultProps) {
     return (
-        <div></div>
+        <div>
+            result is {props.result}%
+        </div>
     );
 }
 
